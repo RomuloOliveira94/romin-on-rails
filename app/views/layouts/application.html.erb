@@ -21,8 +21,14 @@
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
-    <main class="container mx-auto mt-28 px-5 flex">
+    <% if admin? %>
+      <%= link_to "Logout", logout_path, class: "btn btn-error", data: { turbo_method: :delete } %>
+    <% else %>
+      <%= link_to "Login", login_path, class: "btn btn-primary" %>
+    <% end %>
+    <main class="container mx-auto mt-28 px-5 flex min-h-screen">
       <%= yield %>
+      <%= flash_message %>
     </main>
   </body>
 </html>

@@ -8,3 +8,69 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+.notice {
+  color: #18603a;
+  background: #d5f1de url("check.svg") no-repeat 6px center;
+  border-color: #c4ebd1;
+}
+
+.info {
+  color: #1b508f;
+  background: #d6ebff url("exclamation.svg") no-repeat 6px center;
+  border-color: #c6e2ff;
+}
+
+.error {
+  color: #772b35;
+  background: #fadddd url("x.svg") no-repeat 6px center;
+  border-color: #f8cfcf;
+}
+
+.warning {
+  color: #815c15;
+  background: #feefd0 url("danger.svg") no-repeat 6px center;
+  border-color: #fde9bd;
+}
+
+body {
+  overflow: hidden;
+}
+
+.base-alert {
+  position: relative;
+  padding: 0.75rem 2.3rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  width: 20%;
+  bottom: 15%;
+  right: 5%;
+  transform: translateX(0%);
+  position: absolute;
+  animation: alert-box 3s forwards;
+}
+
+@keyframes alert-box {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  25% {
+    transform: translateX(-10%);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+  90% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0%);
+    opacity: 0;
+    display: none;
+  }
+}

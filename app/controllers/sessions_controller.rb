@@ -7,8 +7,8 @@ class SessionsController < ApplicationController
       session[:admin] = true
       redirect_to posts_path, notice: "Login realizado com sucesso!"
     else
-      flash.now[:alert] = "Credenciais inválidas"
-      render :new
+      flash[:error] = "Credenciais inválidas"
+      redirect_to login_path
     end
   end
 
