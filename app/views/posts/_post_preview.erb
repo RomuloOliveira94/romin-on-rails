@@ -5,6 +5,7 @@
     </figure>
   <% end %>
   <div class="card-body">
+    <small><%= l post.created_at.to_date, format: :long %></small>
     <h2 class="card-title"><%= post.title %></h2>
     <p class="hidden lg:block"><%= post.description %></p>
     <div class="card-actions justify-end">
