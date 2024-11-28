@@ -1,12 +1,12 @@
-<div id="<%= dom_id post %>" class="card lg:card-side bg-base-100 shadow-xl">
+<div id="<%= dom_id post %>" class="card lg:card-side bg-base-100 shadow-xl min-h-52 lg:min-h-64">
   <% if post.thumb.attached? %>
-    <figure>
+    <figure class="max-h-52 lg:max-h-64 lg:max-w-96">
       <%= image_tag post.thumb, alt: post.title %>
     </figure>
   <% end %>
   <div class="card-body">
     <h2 class="card-title"><%= post.title %></h2>
-    <p class="hidden lg:block"><%= post.content %></p>
+    <p class="hidden lg:block"><%= post.description %></p>
     <div class="card-actions justify-end">
       <%= link_to post, class: "btn btn-primary" do %>
         <span class="flex items-center gap-2">
