@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :require_admin, except: [:index, :show]
+  before_action :require_admin, except: [ :index, :show ]
   before_action :set_post, only: %i[ show edit update destroy ]
 
   def index
@@ -65,6 +65,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.expect(post: [ :title, :content ])
+      params.expect(post: [ :title, :content, :description, :thumb ])
     end
 end

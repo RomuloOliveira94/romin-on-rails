@@ -1,0 +1,19 @@
+<div id="<%= dom_id post %>" class="card lg:card-side bg-base-100 shadow-xl">
+  <% if post.thumb.attached? %>
+    <figure>
+      <%= image_tag post.thumb, alt: post.title %>
+    </figure>
+  <% end %>
+  <div class="card-body">
+    <h2 class="card-title"><%= post.title %></h2>
+    <p class="hidden lg:block"><%= post.content %></p>
+    <div class="card-actions justify-end">
+      <%= link_to post, class: "btn btn-primary" do %>
+        <span class="flex items-center gap-2">
+          <%= image_tag 'see.svg', class: "h-6 w-6" %>
+          Ler mais...
+        </span>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,7 @@
 source "https://rubygems.org"
 
+gem "aws-sdk-s3"
+gem "active_storage_validations"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 8.0.0"
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
@@ -57,4 +59,3 @@ group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
 end
-

@@ -6,6 +6,14 @@ local:
   service: Disk
   root: <%= Rails.root.join("storage") %>
 
+r2:
+  service: S3
+  endpoint: https://c69c952fdaf929c15c11ac10eeda7cfb.r2.cloudflarestorage.com
+  access_key_id: <%= ENV['R2_ACCESS_KEY_ID'] %>
+  secret_access_key: <%= ENV['R2_SECRET_ACCESS_KEY'] %>
+  bucket: <%= ENV['R2_BUCKET'] %>
+  region: auto # R2 não usa região, mas é necessário especificar
+
 # Use bin/rails credentials:edit to set the AWS secrets (as aws:access_key_id|secret_access_key)
 # amazon:
 #   service: S3
