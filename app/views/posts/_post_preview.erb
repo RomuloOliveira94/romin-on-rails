@@ -1,6 +1,6 @@
-<div id="<%= dom_id post %>" class="card lg:card-side bg-base-100 shadow-xl min-h-52 lg:min-h-64">
+<div id="<%= dom_id post %>" class="card lg:card-side bg-base-100 shadow-xl min-h-44 lg:min-h-52">
   <% if post.thumb.attached? %>
-    <figure class="max-h-52 lg:max-h-64 lg:max-w-96">
+    <figure class="max-h-44 lg:max-h-52 lg:max-w-64">
       <%= image_tag post.thumb, alt: post.title %>
     </figure>
   <% end %>

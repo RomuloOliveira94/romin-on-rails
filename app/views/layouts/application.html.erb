@@ -20,11 +20,11 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.14/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body class="relative min-h-screen">
+  <body>
     <%= render 'layouts/partials/navbar' %>
-    <main class="container mx-auto my-16 px-5 flex">
+    <main class="max-w-3xl mx-auto my-16 px-5 flex relative">
       <%= yield %>
+      <%= flash_message %>
     </main>
-    <%= flash_message %>
   </body>
 </html>

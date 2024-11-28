@@ -7,15 +7,11 @@ class CommentsController < ApplicationController
     if @comment.save
       respond_to do |format|
         format.turbo_stream do
-          render turbo_stream: [
-            turbo_stream.prepend("comments", @comment)
-          ]
+          render turbo_stream: turbo_stream.prepend("comments", @comment)
         end
       end
     else
-      respond_to do |format|
-        format.html { redirect_to @post, alert: "Não foi possível criar o comentário." }
-      end
+      redirect_to @post, alert: "Não foi possível adicionar o comentário."
     end
   end
 
@@ -23,7 +19,6 @@ class CommentsController < ApplicationController
     @comment.destroy
     respond_to do |format|
       format.turbo_stream { render turbo_stream: turbo_stream.remove(@comment) }
-      format.html { redirect_to @post, notice: "Comentário removido." }
     end
   end
 

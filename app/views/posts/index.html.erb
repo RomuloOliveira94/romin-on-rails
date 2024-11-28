@@ -7,7 +7,7 @@
     <% end %>
   </div>
   <div class="divider divider-primary"></div>
-  <div id="posts" class="min-w-full grid gap-2">
+  <div id="posts" class="grid gap-2">
     <% @posts.each do |post| %>
       <%= render 'post_preview', post: post %>
     <% end %>
