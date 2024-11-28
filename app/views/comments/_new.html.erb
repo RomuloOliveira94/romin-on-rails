@@ -1,0 +1,12 @@
+<%= form_with(model: [ post , Comment.new ], class: "form-control space-y-2") do |form| %>
+  <div class="grid gap-2">
+    <%= form.text_field :user, class: "input input-bordered input-primary w-full", placeholder: "Seu nome" %>
+  </div>
+  <div class="grid gap-2">
+    <%= form.text_area :content, class: "textarea textarea-primary w-full", rows: 3, placeholder: "Comente aqui..." %>
+  </div>
+  <div class="flex items-center justify-end gap-4">
+    <%= link_to "Voltar", posts_path, class: "btn btn-secondary" %>
+    <%= form.submit "Comentar", class: "btn btn-primary" %>
+  </div>
+<% end %>
