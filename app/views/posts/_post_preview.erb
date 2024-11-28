@@ -1,18 +1,20 @@
-<div id="<%= dom_id post %>" class="card lg:card-side bg-base-100 shadow-xl min-h-44 lg:min-h-52">
+<div id="<%= dom_id post %>" class="card lg:card-side bg-base-100 shadow-xl max-h-36 lg:max-h-52">
   <% if post.thumb.attached? %>
-    <figure class="max-h-44 lg:max-h-52 lg:max-w-64">
+    <figure class="max-h-36 lg:max-h-52 lg:max-w-56">
       <%= image_tag post.thumb, alt: post.title %>
     </figure>
   <% end %>
   <div class="card-body">
     <small><%= l post.created_at.to_date, format: :long %></small>
-    <h2 class="card-title"><%= post.title %></h2>
-    <p class="hidden lg:block"><%= post.description %></p>
+    <%= link_to post, class: "link link-hover" do %>
+      <h2 class="card-title"><%= truncate(post.title, length: 90) %></h2>
+    <% end %>
+    <p class="hidden lg:block"><%= truncate(post.description, length: 70) %></p>
     <div class="card-actions justify-end">
-      <%= link_to post, class: "btn btn-primary" do %>
+      <%= link_to post, class: "btn btn-primary btn-sm" do %>
         <span class="flex items-center gap-2">
           <%= image_tag 'see.svg', class: "h-6 w-6" %>
-          Ler mais...
+          Ver mais...
         </span>
       <% end %>
     </div>
