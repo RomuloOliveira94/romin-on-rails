@@ -1,6 +1,14 @@
-<div>
+<div class="mt-6">
+  <h1 class="text-xl font-bold">Faça um comentário:</h1>
   <%= render 'comments/new', post: post %>
-  <div id="comments" class="grid gap-2 mt-4">
-    <%= render post.comments %>
-  </div>
+  <% if post.comments.any? %>
+    <div id="comments" class="grid gap-4 mt-4">
+      <div id="bar" class="divider divider-primary">Comentários</div>
+      <%= render post.comments %>
+    </div>
+  <% else %>
+    <div id="comments" class="grid gap-4 mt-4">
+      <p id="message" class="text-center text-xl font-semibold">Seja o primeiro a comentar!</p>
+    </div>
+  <% end %>
 </div>

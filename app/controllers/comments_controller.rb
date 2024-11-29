@@ -1,13 +1,15 @@
 class CommentsController < ApplicationController
   before_action :set_post
   before_action :set_comment, only: :destroy
+  before_action :check_first_comment, only: :create
 
   def create
     @comment = @post.comments.new(comment_params)
     if @comment.save
+      @stream << turbo_stream.prepend("comments", @comment)
       respond_to do |format|
         format.turbo_stream do
-          render turbo_stream: turbo_stream.prepend("comments", @comment)
+            render turbo_stream: @stream
         end
       end
     else
@@ -34,5 +36,13 @@ class CommentsController < ApplicationController
 
   def set_comment
     @comment = @post.comments.find(params[:id])
+  end
+
+  def check_first_comment
+    @stream = []
+    unless @post.comments.any?
+      @stream << turbo_stream.prepend("comments", "<div id=\"bar\" class=\"divider divider-primary\">Comentários</div>")
+      @stream << turbo_stream.remove("message")
+    end
   end
 end

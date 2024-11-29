@@ -8,7 +8,6 @@
         <%= button_to "Excluir", @post, method: :delete, class: "btn btn-error" %>
       <% end %>
     </div>
-    <div class="divider divider-primary">Comentários</div>
     <%= render 'comments/comments', post: @post %>
   </div>
 </div>

@@ -1,4 +1,4 @@
-<div class="w-full bg-base-100 shadow-sm">
+<div class="w-full bg-base-100 shadow-md fixed z-50">
   <div class="navbar max-w-4xl mx-auto">
     <div class="flex-1">
       <%= link_to root_path, class: "btn btn-ghost p-0 m-0 h-full" do %>
@@ -10,9 +10,9 @@
         <li><%= link_to "Sobre", about_path %></li>
         <li><%= link_to "Posts", posts_path %></li>
         <li>
-          <select data-choose-theme class="appearance-none bg-transparent border-none cursor-pointer focus:outline-none">
-            <option value="dark">🌜</option>
-            <option value="light">🌞</option>
+          <select data-choose-theme class="appearance-none bg-transparent border-none cursor-pointer focus:outline-none flex items-center justify-center">
+            <option value="dracula">🌜</option>
+            <option value="autumn">🌞</option>
           </select>
         </li>
         <%#<li>
