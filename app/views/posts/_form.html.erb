@@ -1,4 +1,4 @@
-<%= form_with(model: post, class: "form-control space-y-4") do |form| %>
+<%= form_with(model: post, class: "form-control space-y-4 w-full") do |form| %>
   <% if post.errors.any? %>
     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
       <h2><%= pluralize(post.errors.count, "error") %> Erros:</h2>
@@ -28,12 +28,11 @@
     <%= form.label :description %>
     <%= form.text_area :description, class: "textarea textarea-primary w-full", rows: 3, placeholder: "Descrição" %>
   </div>
-  <div class="grid gap-2 bg-white p-4 rounded-md">
-    <%= form.label :content, class: "text-black" %>
+  <div class="p-4 rounded-md w-full bg-neutral">
     <%= form.rich_textarea :content %>
   </div>
   <div class="flex items-center gap-4">
-    <%= form.submit "Criar", class: "btn btn-primary" %>
+    <%= form.submit class: "btn btn-primary" %>
     <%= link_to "Voltar", posts_path, class: "btn btn-secondary" %>
   </div>
 <% end %>

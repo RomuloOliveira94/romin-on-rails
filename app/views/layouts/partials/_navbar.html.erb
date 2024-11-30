@@ -1,11 +1,11 @@
 <div class="w-full bg-base-100 shadow-md fixed z-50">
-  <div class="navbar max-w-4xl mx-auto">
-    <div class="flex-1">
+  <div class="navbar max-w-4xl flex justify-between mx-auto">
+    <div>
       <%= link_to root_path, class: "btn btn-ghost p-0 m-0 h-full" do %>
         <%= image_tag 'romin-on-rails-no-bg.png', class: "w-20 h-20 p-0 m-0" %>
       <% end %>
     </div>
-    <div class="flex-none">
+    <div>
       <ul class="menu menu-horizontal px-1 text-lg flex items-center">
         <li><%= link_to "Sobre", about_path %></li>
         <li><%= link_to "Posts", posts_path %></li>
@@ -24,7 +24,7 @@
             </ul>
           </details>
         </li>%>
-        <li>
+        <li class="hidden lg:block">
           <% if admin? %>
             <%= link_to "Logout", logout_path, class: "text-error", data: { turbo_method: :delete } %>
           <% end %>
