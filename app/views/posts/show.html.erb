@@ -1,7 +1,7 @@
-<div class="w-max">
+<div class="w-full">
   <%= turbo_stream_from @post %>
   <%= render @post %>
-  <div class="flex items-center justify-end gap-4">
+  <div class="flex items-center gap-4 mt-6">
     <% if admin? %>
       <%= link_to "Editar", edit_post_path(@post), class: "btn btn-primary" %>
       <%= button_to "Excluir", @post, method: :delete, class: "btn btn-error" %>

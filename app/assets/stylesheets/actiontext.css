@@ -343,6 +343,7 @@ trix-editor .attachment__metadata {
   word-break: break-word; }
   .trix-content * {
     box-sizing: border-box;
+    color: black;
     margin: 0;
     padding: 0; }
   .trix-content h1 {
@@ -366,6 +367,7 @@ trix-editor .attachment__metadata {
   .trix-content pre {
     display: inline-block;
     width: 100%;
+    color: black;
     vertical-align: top;
     font-family: monospace;
     font-size: 0.9em;

@@ -3,7 +3,5 @@
     <%= post.title %>
   </p>
   <div class="divider divider-error"><%= l post.created_at.to_date, format: :long %></div>
-  <div class="w-full">
-    <%= post.content %>
-  </div>
+  <%= post.content %>
 </div>
