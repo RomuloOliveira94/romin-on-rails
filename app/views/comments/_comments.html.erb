@@ -3,7 +3,7 @@
   <%= render 'comments/new', post: post %>
   <% if post.comments.any? %>
     <div id="comments" class="grid gap-4 mt-4">
-      <div id="bar" class="divider divider-primary">Comentários</div>
+      <div id="bar" class="divider divider-error">Comentários</div>
       <%= render post.comments %>
     </div>
   <% else %>

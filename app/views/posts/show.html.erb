@@ -3,7 +3,7 @@
   <%= render @post %>
   <div class="flex items-center justify-end gap-4">
     <% if admin? %>
-      <%= link_to "Editar", edit_post_path(@post), class: "btn btn-info" %>
+      <%= link_to "Editar", edit_post_path(@post), class: "btn btn-primary" %>
       <%= button_to "Excluir", @post, method: :delete, class: "btn btn-error" %>
     <% end %>
   </div>

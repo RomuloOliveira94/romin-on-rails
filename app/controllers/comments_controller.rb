@@ -41,7 +41,7 @@ class CommentsController < ApplicationController
   def check_first_comment
     @stream = []
     unless @post.comments.any?
-      @stream << turbo_stream.prepend("comments", "<div id=\"bar\" class=\"divider divider-primary\">Comentários</div>")
+      @stream << turbo_stream.prepend("comments", "<div id=\"bar\" class=\"divider divider-error\">Comentários</div>")
       @stream << turbo_stream.remove("message")
     end
   end

@@ -6,11 +6,10 @@
       <%= link_to "Nova Postagem", new_post_path, class: "btn btn-primary" %>
     <% end %>
   </div>
-  <div class="divider divider-primary"></div>
+  <div class="divider divider-error"></div>
   <div id="posts" class="grid gap-4">
     <% @posts.each do |post| %>
       <%= render 'post_preview', post: post %>
     <% end %>
   </div>
-
 </div>
