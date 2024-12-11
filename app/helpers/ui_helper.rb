@@ -18,10 +18,10 @@ module UiHelper
         )
 
         concat(
-            content_tag(:button, class: "simple-nav-bar-close-button", data: { action: "click->menu#toggle", menu_target: "closeButton" }) do
-              concat content_tag(:span, "", class: "simple-nav-bar-close-line")
-              concat content_tag(:span, "", class: "simple-nav-bar-close-line")
-            end
+          content_tag(:button, class: "simple-nav-bar-close-button") do
+            concat content_tag(:span, "", class: "simple-nav-bar-close-line")
+            concat content_tag(:span, "", class: "simple-nav-bar-close-line")
+          end
         )
 
         concat(
@@ -29,7 +29,28 @@ module UiHelper
             content_tag(:nav) do
               content_tag(:ul, class: "simple-nav-bar-nav-list") do
                 links.map do |link|
-                  concat content_tag(:li, link_to(link[:label], link[:url], class: "simple-nav-bar-nav-link"), class: "simple-nav-bar-nav-item")
+                  if link[:dropdown]
+                    concat(
+                      content_tag(:li, class: "simple-nav-bar-nav-item simple-nav-bar-nav-item-dropdown") do
+                        concat(
+                          content_tag(:button, class: "simple-nav-bar-nav-link simple-nav-bar-dropdown-toggle") do
+                            concat link[:dropdown][:label]
+                            concat content_tag(:span, "▼", class: "simple-nav-bar-dropdown-arrow-down")
+                            concat content_tag(:span, "▲", class: "simple-nav-bar-dropdown-arrow-up simple-nav-bar-hidden")
+                          end
+                        )
+                        concat(
+                          content_tag(:ul, class: "simple-nav-bar-dropdown-menu simple-nav-bar-hidden", data: { menu_target: "dropdownMenu" }) do
+                            link[:dropdown][:links].map do |sublink|
+                              concat content_tag(:li, link_to(sublink[:label], sublink[:url], class: "simple-nav-bar-dropdown-item"))
+                            end.join.html_safe
+                          end
+                        )
+                      end
+                    )
+                  else
+                    concat content_tag(:li, link_to(link[:label], link[:url], class: "simple-nav-bar-nav-link"), class: "simple-nav-bar-nav-item")
+                  end
                 end.join.html_safe
               end
             end
@@ -50,7 +71,7 @@ module UiHelper
         )
 
         concat(
-          content_tag(:button, class: "simple-nav-bar-burger-button", data: { action: "click->menu#toggle", menu_target: "burgerButton" }) do
+          content_tag(:button, class: "simple-nav-bar-burger-button", data: { action: "click->menu#menuToggle", menu_target: "burgerButton" }) do
             concat content_tag(:span, "", class: "simple-nav-bar-burger-line")
             concat content_tag(:span, "", class: "simple-nav-bar-burger-line")
             concat content_tag(:span, "", class: "simple-nav-bar-burger-line")
@@ -58,18 +79,39 @@ module UiHelper
         )
 
         concat(
-            content_tag(:button, class: "simple-nav-bar-close-button", data: { action: "click->menu#toggle", menu_target: "closeButton" }) do
+            content_tag(:button, class: "simple-nav-bar-close-button", data: { action: "click->menu#menuToggle", menu_target: "closeButton" }) do
               concat content_tag(:span, "", class: "simple-nav-bar-close-line")
               concat content_tag(:span, "", class: "simple-nav-bar-close-line")
             end
         )
 
         concat(
-          content_tag(:div, class: "simple-nav-bar-nav-list-container", data: { menu_target: "menu", action: "click->menu#toggle" }) do
+          content_tag(:div, class: "simple-nav-bar-nav-list-container", data: { menu_target: "menu" }) do
             content_tag(:nav) do
               content_tag(:ul, class: "simple-nav-bar-nav-list") do
                 links.map do |link|
-                  concat content_tag(:li, link_to(link[:label], link[:url], class: "simple-nav-bar-nav-link"), class: "simple-nav-bar-nav-item")
+                  if link[:dropdown]
+                    concat(
+                      content_tag(:li, class: "simple-nav-bar-nav-item simple-nav-bar-nav-item-dropdown") do
+                        concat(
+                          content_tag(:button, class: "simple-nav-bar-nav-link", data: { menu_target: "dropdownToggle" }) do
+                            concat link[:dropdown][:label]
+                            concat content_tag(:span, "▼", class: "simple-nav-bar-dropdown-arrow-down")
+                            concat content_tag(:span, "▲", class: "simple-nav-bar-dropdown-arrow-up simple-nav-bar-hidden")
+                          end
+                        )
+                        concat(
+                          content_tag(:ul, class: "simple-nav-bar-dropdown-menu simple-nav-bar-hidden", data: { menu_target: "dropdownMenu" }) do
+                            link[:dropdown][:links].map do |sublink|
+                              concat content_tag(:li, link_to(sublink[:label], sublink[:url], class: "simple-nav-bar-dropdown-item"))
+                            end.join.html_safe
+                          end
+                        )
+                      end
+                    )
+                  else
+                    concat content_tag(:li, link_to(link[:label], link[:url], class: "simple-nav-bar-nav-link"), class: "simple-nav-bar-nav-item")
+                  end
                 end.join.html_safe
               end
             end

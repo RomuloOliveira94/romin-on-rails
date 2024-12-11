@@ -20,7 +20,7 @@
     <%= javascript_include_tag "custom/simple_navbar" %>
     <%= javascript_importmap_tags %>
   </head>
-  <body data-controller="theme">
+  <body data-controller="theme" class="w-full">
     <%= romin_navbar(
       brand: {
       logo: "romin-on-rails-no-bg.png",
@@ -28,16 +28,26 @@
       },
       links: [
       { label: "Home", url: about_path },
-      { label: "Posts", url: posts_path }
-      ]
+      { label: "Posts", url: posts_path },
+      { dropdown: {
+          label: "Mored adas dasda",
+            links: [
+              { label: "Mored adas dasda", url: about_path },
+              { label: "teste dasdasdas d", url: posts_path }
+          ]}
+      },
+      { dropdown: {
+          label: "teste",
+            links: [
+              { label: "teste dasdasdas d", url: about_path },
+              { label: "Posts", url: posts_path }
+          ]}
+      }         
+      ]  
     ) %>
-    <div class="flex">
-      <%#<%= render 'layouts/partials/navbar' %>
-      <main class="max-w-4xl mx-auto px-5 pt-36 mb-16 flex relative">
-        <%= yield %>
-        <%= flash_message %>
-      </main>
-    </div>
+    <main class="max-w-4xl mx-auto px-5 pt-36 mb-16 flex relative">
+      <%= yield %>
+      <%= flash_message %>
+    </main>
   </body>
-  
 </html>
