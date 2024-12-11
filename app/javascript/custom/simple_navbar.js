@@ -64,6 +64,6 @@ class MenuController {
   }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("turbo:load", () => {
   new MenuController();
 });
