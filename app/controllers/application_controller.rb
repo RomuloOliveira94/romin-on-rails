@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   # allow_browser versions: :modern
   helper_method :admin?
+  helper :ui
 
   private
 
