@@ -4,8 +4,33 @@ export default class extends Controller {
   static targets = ["menu", "burgerButton", "closeButton"];
 
   connect() {
-    this.menuTarget.classList.add("hidden");
-    this.closeButtonTarget.classList.add("hidden");
+    this.checkWindowWidth();
+    this.closeButtonTarget.classList.add("simple-nav-bar-hidden");
+    window.addEventListener("resize", () => this.watchWindowWidth());
+  }
+
+  isMobile() {
+    return window.innerWidth < 1024;
+  }
+
+  watchWindowWidth() {
+    if (this.isMobile()) {
+      this.menuTarget.classList.add("simple-nav-bar-hidden");
+      this.burgerButtonTarget.classList.remove("simple-nav-bar-hidden");
+      this.closeButtonTarget.classList.add("simple-nav-bar-hidden");
+    } else {
+      this.menuTarget.classList.remove("simple-nav-bar-hidden");
+      this.burgerButtonTarget.classList.add("simple-nav-bar-hidden");
+      this.closeButtonTarget.classList.add("simple-nav-bar-hidden");
+    }
+  }
+
+  checkWindowWidth() {
+    if (this.isMobile()) {
+      this.menuTarget.classList.add("simple-nav-bar-hidden");
+      this.burgerButtonTarget.classList.remove("simple-nav-bar-hidden");
+      this.closeButtonTarget.classList.add("simple-nav-bar-hidden");
+    }
   }
 
   toggle() {
@@ -13,14 +38,8 @@ export default class extends Controller {
     const burger = this.burgerButtonTarget;
     const close = this.closeButtonTarget;
 
-    if (menu.classList.contains("hidden")) {
-      menu.classList.remove("hidden");
-      burger.classList.add("hidden");
-      close.classList.remove("hidden");
-    } else {
-      menu.classList.add("hidden");
-      burger.classList.remove("hidden");
-      close.classList.add("hidden");
-    }
+    menu.classList.toggle("simple-nav-bar-hidden");
+    burger.classList.toggle("simple-nav-bar-hidden");
+    close.classList.toggle("simple-nav-bar-hidden");
   }
 }

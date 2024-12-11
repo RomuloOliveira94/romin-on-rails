@@ -22,13 +22,12 @@
   <body data-controller="theme">
     <%= romin_navbar(
       brand: {
-        logo: "romin-on-rails-no-bg.png",
-        url: root_path,
-        title: "Romin On Rails"
+      logo: "romin-on-rails-no-bg.png",
+      url: root_path
       },
       links: [
-        { label: "Home", url: about_path },
-        { label: "Posts", url: posts_path }
+      { label: "Home", url: about_path },
+      { label: "Posts", url: posts_path }
       ]
     ) %>
     <div class="flex">
