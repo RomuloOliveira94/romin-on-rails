@@ -30,20 +30,22 @@
       { label: "Home", url: about_path },
       { label: "Posts", url: posts_path },
       { dropdown: {
-          label: "Mored adas dasda",
-            links: [
-              { label: "Mored adas dasda", url: about_path },
-              { label: "teste dasdasdas d", url: posts_path }
-          ]}
+        label: "More",
+        links: [
+          { label: "More", url: about_path },
+          { label: "Test", url: posts_path }
+        ]
+        }
       },
       { dropdown: {
-          label: "teste",
-            links: [
-              { label: "teste dasdasdas d", url: about_path },
-              { label: "Posts", url: posts_path }
-          ]}
-      }         
-      ]  
+        label: "Test",
+        links: [
+          { label: "Test", url: about_path },
+          { label: "Posts", url: posts_path }
+        ]
+        }
+      }
+      ]
     ) %>
     <main class="max-w-4xl mx-auto px-5 pt-36 mb-16 flex relative">
       <%= yield %>
