@@ -8,9 +8,6 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
-
-@import url("./simple_navbar.css");
-
 .notice {
   color: #18603a;
   background: #d5f1de url("check.svg") no-repeat 6px center;

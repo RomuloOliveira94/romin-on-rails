@@ -17,35 +17,26 @@
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "custom/simple_navbar" %>
     <%= javascript_importmap_tags %>
   </head>
   <body data-controller="theme" class="w-full">
-    <%= romin_navbar(
+    <%= simple_navbar_s(
       brand: {
-      logo: "romin-on-rails-no-bg.png",
+      title: "Dummy",
+      logo: "/icon.png",
       url: root_path
       },
       links: [
-      { label: "Home", url: about_path },
-      { label: "Posts", url: posts_path },
+      { label: "Home", url: root_path },
+      { label: "teste", url: root_path },
       { dropdown: {
         label: "More",
         links: [
-          { label: "More", url: about_path },
-          { label: "Test", url: posts_path }
+          { label: "More", url: root_path },
+          { label: "Test", url: root_path }
         ]
         }
-      },
-      { dropdown: {
-        label: "Test",
-        links: [
-          { label: "Test", url: about_path },
-          { label: "Posts", url: posts_path }
-        ]
-        }
-      }
-      ]
+      }]
     ) %>
     <main class="max-w-4xl mx-auto px-5 pt-36 mb-16 flex relative">
       <%= yield %>
