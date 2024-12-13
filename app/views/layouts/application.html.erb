@@ -18,26 +18,17 @@
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <%= javascript_include_tag 'custom/simple_navbar' %>
   </head>
   <body data-controller="theme" class="w-full">
-    <%= simple_navbar_s(
+    <%= simple_navbar(
       brand: {
-      title: "Dummy",
-      logo: "/icon.png",
+      logo: "romin-on-rails-no-bg.png",
       url: root_path
       },
       links: [
-      { label: "Home", url: root_path },
-      { label: "teste", url: root_path },
-      { dropdown: {
-        label: "More",
-        links: [
-          { label: "More", url: root_path },
-          { label: "Test", url: root_path }
-        ]
-        }
-      }]
-    ) %>
+      { label: "Sobre", url: about_path },
+      { label: "Posts", url: posts_path }]) %>
     <main class="max-w-4xl mx-auto px-5 pt-36 mb-16 flex relative">
       <%= yield %>
       <%= flash_message %>

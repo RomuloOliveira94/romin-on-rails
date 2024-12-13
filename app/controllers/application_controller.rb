@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  helper SimpleNavbar
   # allow_browser versions: :modern
   helper_method :admin?
   private
