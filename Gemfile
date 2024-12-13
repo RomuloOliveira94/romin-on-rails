@@ -3,7 +3,7 @@ source "https://rubygems.org"
 gem "aws-sdk-s3"
 gem "active_storage_validations"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 8.0.0"
+gem "rails", "~> 8.0.1"
 gem "friendly_id", "~> 5.5.0"
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem "propshaft"
