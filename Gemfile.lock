@@ -1,10 +1,3 @@
-GIT
-  remote: https://github.com/RomuloOliveira94/simple_navbar
-  revision: b50845f9cf6bf825a57e0ed7150edfdbf6a10844
-  specs:
-    simple_navbar (0.1.0)
-      rails (>= 6.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -410,7 +403,6 @@ DEPENDENCIES
   puma (>= 5.0)
   rails (~> 8.0.0)
   rubocop-rails-omakase
-  simple_navbar!
   solid_cable
   solid_cache
   solid_queue
